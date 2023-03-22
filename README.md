@@ -32,4 +32,4 @@ node app.js
 ## :compass: Roadmap
 
 * [x] Trigger VMix Events Sample
-* [] Create a Dummy PCOB server for testing VMixHandler
+* [ ] Create a Dummy PCOB server for testing VMixHandler

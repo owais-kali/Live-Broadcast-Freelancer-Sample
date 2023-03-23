@@ -18,6 +18,16 @@ cd LIVE-BROADCAST-AUTOMATION
 git checkout develop
 ```
 
+## Install node-modules PCOB-Dummy
+```
+cd PCOB-Dummy
+npm install
+```
+## Run PCOB-Dummy
+```
+node app.js
+```
+
 ## Install node-modules Vmix-Handler
 ```
 cd Vmix-Handler
@@ -26,6 +36,12 @@ npm install
 ## Run Vmix-Handler
 ```
 node app.js
+```
+
+## Updating Changes
+```
+git checkout <your-name>
+git merge owais-dev
 ```
 
 <!-- Roadmap -->

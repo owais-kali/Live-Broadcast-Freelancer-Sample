@@ -33,6 +33,25 @@ app.get("/Fade", (req, res) => {
   }
 });
 
+function Elimination(){
+    axios.get("http://" + vmix_url + "/api/?Function=Fade&Input=elimination.gtzip")
+    .then(function (response) {
+      console.log(response.data);
+      // I need this data here ^^
+      return response.data;
+
+      if(response.data.Elimination == 5){
+        console.log(Response)
+      }
+  })
+  .catch(function (error) {
+      console.log(error);
+  });
+}
+}
+
+
 app.listen(port, () => {
   console.log(`VMix Handler listening on port ${port}`);
 });
+ 

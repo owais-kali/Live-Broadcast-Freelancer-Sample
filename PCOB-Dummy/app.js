@@ -14,7 +14,7 @@ app.get('/gettotalplayerlist', (req, res) => {
     res.send(data)
   });
 })
-
+  
 app.listen(port, () => {
-  console.log(`VMix Handler listening on port ${port}`)
+  console.log(`PCOB-Dummy listening on port ${port}`)
 })

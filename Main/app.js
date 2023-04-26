@@ -99,10 +99,6 @@ function Elimination(playerName){
   }
 }
 
-setInterval(()=>{
-  ProcessTotalPlayerList();
-}, 1000)
-
 app.get("/Test_API", (req, res) => {    
 
 })
@@ -114,74 +110,17 @@ app.get("/Fade", (req, res) => {
     console.error(error);
   }
 });
-//Domination
-function Domination(playerName){
-  console.log("player: "+JSON.stringify(playerName)+" is dead!");
-  try {
-    axios.get("http://" + vmix_url + "/api/?Function=SetText&Input=domination.gtzip&SelectedName=RANK.Text&Value="+playerName).then((res)=>{
-      console.log(res);
-    }, (err)=>{
-
-    })
-
-    axios.get("http://" + vmix_url + "/api/?Function=Fade&Input=domination.gtzip");
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 setInterval(()=>{
   ProcessTotalPlayerList();
 }, 1000)
 
-app.get("/Test_API", (req, res) => {    
+const worker = new Worker('./PCOB-Handler.js');
+worker.postMessage("Start")
 
+worker.on('message', (result) => {
+  
 })
-
-app.get("/Fade", (req, res) => {
-  try {
-    res.send(axios.get("http://" + vmix_url + "/api/?Function=Fade&Input=1"));
-  } catch (error) {
-    console.error(error);
-  }
-});
-//Granadier
-function Grenadier(playerName){
-   console.log("player: "+JSON.stringify(playerName)+" throwed the Bomb!");
-   try {
-    axios.get("http://" + vmix_url + "/api/?Function=SetText&Input=grenadier.gtzip"+playerName).then((res)=>{
-      console.log(res);
-    }, (err)=>{
-
-    })
-
-    axios.get("http://" + vmix_url + "/api/?Function=Fade&Input=grenadier.gtzip");
-  } catch (error) {
-    console.error(error);
-  }
-}
-
-function AirDropLooted(playerName){
-  console.log("player: "+JSON.stringify(playerName)+" Air Drop Looted!");
-  try {
-   axios.get("http://" + vmix_url + "/api/?Function=SetText&Input=air drop looted.gtzip"+playerName).then((res)=>{
-     console.log(res);
-   }, (err)=>{
-
-   })
-
-   axios.get("http://" + vmix_url + "/api/?Function=Fade&Input=air drop looted.gtzip");
- } catch (error) {
-   console.error(error);
- }
-}
-//match intro 
-function MatchIntro(team){
-  GetTotalPlayerList();{
-   console.log(JSON.stringify())  //incomplete
-
-  }
-}
 
 app.listen(port, () => {
   console.log(`VMix Handler listening on port ${port}`);

@@ -7,33 +7,6 @@ const port = 3000;
 const vmix_url = "127.0.0.1:8088";
 const pcob_url = "127.0.0.1:10086";
 
-var playerInfoMap = new Map();
-
-// Get TotalPlayerList JSON data from PCOB
-function GetTotalPlayerList() {
-  return axios.get("http://" + pcob_url + "/gettotalplayerlist");
-}
-
-// Load all players in playerInfoMap
-GetTotalPlayerList().then(
-  (obj) => {
-    var playerInfoList = obj.data.playerInfoList;
-    
-    for (let i = 0; i < playerInfoList.length; i++) {
-      const element = playerInfoList[i];
-
-      playerInfoMap.set(element.uId, {
-        Eliminated : false,
-      })
-
-    }
-  },
-  (err) => {
-    console.log(err);
-    res.status(404).send("Oh uh, something went wrong");
-  }
-);
-
 // Process TotalPlayerList
 function ProcessTotalPlayerList() {
   GetTotalPlayerList().then(
@@ -115,7 +88,7 @@ setInterval(()=>{
   ProcessTotalPlayerList();
 }, 1000)
 
-const worker = new Worker('./PCOB-Handler.js');
+const worker = new Worker('./PCOB-Handler.js', pcob_url);
 worker.postMessage("Start")
 
 worker.on('message', (result) => {

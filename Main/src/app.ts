@@ -1,9 +1,9 @@
-import express from "express";
+import express, { Express, Request, Response } from 'express';
 
 // import { VMix_Handler } from "./Vmix/Vmix-Handler";
 import { PCOB_Handler } from "./PCOB/PCOB-Handler";
 
-const app = express();
+const app: Express = express();
 const port = 3000;
 
 const vmix_url = "127.0.0.1:8088";

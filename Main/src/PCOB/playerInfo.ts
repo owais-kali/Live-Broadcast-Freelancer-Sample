@@ -1,4 +1,4 @@
-export interface playerInfo {
+export type playerInfo = {
     uId: number
     playerName: string
     playerOpenId: string
@@ -45,3 +45,6 @@ export interface playerInfo {
     z: number
   }
   
+  export type playerInfoList = {
+    playerInfoList: playerInfo[]
+  }

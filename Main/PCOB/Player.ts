@@ -1,3 +1,3 @@
 export class Player{
-    Eliminated: boolean
+    Eliminated: boolean = false;
 }

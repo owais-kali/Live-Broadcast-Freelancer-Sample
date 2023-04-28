@@ -1,6 +1,7 @@
 const axios = require("axios");
 
 import { Player } from "./Player";
+import { playerInfo } from "./playerInfo";
 
 export class PCOB_Handler {
   url: string; //PCOB URL
@@ -17,10 +18,10 @@ export class PCOB_Handler {
   // Get TotalPlayerList JSON data from PCOB
   GetTotalPlayerList() {
     var obj = axios.get("http://" + this.url + "/gettotalplayerlist");
-    var playerInfoList = obj.data.playerInfoList;
+    var playerInfoList: [] = obj.data.playerInfoList;
 
     for (let i = 0; i < playerInfoList.length; i++) {
-      const element = playerInfoList[i];
+      const element: playerInfo = playerInfoList[i];
 
       this.playerInfoMap.set(element.uId, {
         Eliminated: false,
@@ -28,11 +29,11 @@ export class PCOB_Handler {
 
       // Check LiveState
       const liveState = element.liveState;
+      const playerInfo = this.playerInfoMap.get(element.uId);
       if (
         liveState == 5 &&
-        this.playerInfoMap.get(element.uId).Eliminated == false
+        playerInfo?.Eliminated == false
       ) {
-        this.playerInfoMap.get(element.uId).Eliminated = true;
         this.OnEliminated(element.playerName);
       }
     }

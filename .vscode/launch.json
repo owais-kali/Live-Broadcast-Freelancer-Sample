@@ -17,7 +17,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            
+            "preLaunchTask": "tsc",
             "program": "${workspaceFolder}\\Main\\build\\app.js"
         },
     ]

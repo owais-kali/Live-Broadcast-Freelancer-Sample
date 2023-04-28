@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
-import { Player } from "./Player";
-import { playerInfo, playerInfoList } from "./playerInfo";
+import { Player } from "../types/Player";
+import { playerInfo, playerInfoList } from "../types/playerInfo";
 
 export class PCOB_Handler {
   url: string; //PCOB URL
@@ -9,7 +9,7 @@ export class PCOB_Handler {
   GetTotalPlayerList_Loop: NodeJS.Timeout | undefined;
 
   // Callbacks
-  OnEliminated: Function = () => {
+  OnEliminated: (playerInfo: playerInfo) => void = (playerInfo) => {
     console.log("On Eliminated called but not handled!");
   };
 
@@ -23,14 +23,16 @@ export class PCOB_Handler {
       .get<playerInfoList>("http://" + this.url + "/gettotalplayerlist")
       .then((res: AxiosResponse<playerInfoList>) => {
         for (let i = 0; i < res.data.playerInfoList.length; i++) {
-          const element: playerInfo = res.data.playerInfoList[i];
+          const playerInfo: playerInfo = res.data.playerInfoList[i];
 
           // Check LiveState
-          const liveState = element.liveState;
-          const player: Player | undefined = this.playerInfoMap.get(element.uId);
+          const liveState = playerInfo.liveState;
+          const player: Player | undefined = this.playerInfoMap.get(
+            playerInfo.uId
+          );
           if (liveState == 5 && player?.Eliminated == false) {
-            this.OnEliminated(element.playerName);
-            this.playerInfoMap.set(element.uId, {
+            this.OnEliminated(playerInfo);
+            this.playerInfoMap.set(playerInfo.uId, {
               Eliminated: true,
             });
           }
@@ -39,12 +41,18 @@ export class PCOB_Handler {
   }
 
   async Start() {
-    const res = await axios.get<playerInfoList>("http://" + this.url + "/gettotalplayerlist");
-    for (let index: number = 0; index < res.data.playerInfoList.length; index++) {
-      const player: Player = {Eliminated: false};
-      this.playerInfoMap.set(res.data.playerInfoList[index].uId, player)
+    const res = await axios.get<playerInfoList>(
+      "http://" + this.url + "/gettotalplayerlist"
+    );
+    for (
+      let index: number = 0;
+      index < res.data.playerInfoList.length;
+      index++
+    ) {
+      const player: Player = { Eliminated: false };
+      this.playerInfoMap.set(res.data.playerInfoList[index].uId, player);
     }
-    
+
     this.GetTotalPlayerList_Loop = setInterval(
       this.GetTotalPlayerList.bind(this),
       1000

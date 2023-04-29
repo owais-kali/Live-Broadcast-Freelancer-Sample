@@ -9,7 +9,7 @@ export interface ENV {
 
 export const getConfig = (): ENV => {
   return {
-    HTTP: process.env.SSL ? "https" : "http",
+    HTTP: process.env.SSL == "1" ? "https" : "http",
     GTZIP_INGAME_PATH: process.env.GTZIP_INGAME_PATH
       ? process.env.GTZIP_INGAME_PATH
       : "",

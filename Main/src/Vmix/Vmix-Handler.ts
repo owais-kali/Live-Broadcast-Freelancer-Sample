@@ -1,9 +1,11 @@
 import axios, { AxiosResponse } from "axios";
+import fs from "fs";
+
 import { playerInfo } from "../types/playerInfo";
 import { PCOB_Handler } from "../PCOB/PCOB-Handler";
 import { getConfig } from "../env";
-
-import fs from "fs";
+import { Shortcuts } from "./Shortcuts/Shortcuts";
+import { Input, FileType } from "./Shortcuts/Input";
 
 export class VMix_Handler {
   url: string;
@@ -20,8 +22,15 @@ export class VMix_Handler {
     const GTZIP_INGAME_PATH = getConfig().GTZIP_INGAME_PATH;
 
     fs.readdirSync(GTZIP_INGAME_PATH).forEach((file) => {
-      //Title|d:\Freelancer\ESports\GTs\GTZIP_INGAME\DOMINATION.gtzip
-      if (file == "ELIMINATION.gtzip") console.log("file: " + file);
+      const filepath:string = GTZIP_INGAME_PATH+"\\"+file;
+
+        let shortcuts = new Shortcuts(this.url);
+        let input = new Input();
+        let ft:string = FileType.Title;
+
+        input.AddInput(ft, filepath);
+
+        shortcuts.SendAPIRequest(input);
     });
   }
 

@@ -1,6 +1,6 @@
 import { IApi } from "./Shortcuts";
 
-export type FileType = {
+export const FileType = {
     Title: "Title"
 }
 

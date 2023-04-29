@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from "axios";
 
 import { Player } from "../types/Player";
 import { playerInfo, playerInfoList } from "../types/playerInfo";
+import { CheckElimination } from "./Elimination";
 
 export class PCOB_Handler {
   url: string; //PCOB URL
@@ -24,18 +25,7 @@ export class PCOB_Handler {
       .then((res: AxiosResponse<playerInfoList>) => {
         for (let i = 0; i < res.data.playerInfoList.length; i++) {
           const playerInfo: playerInfo = res.data.playerInfoList[i];
-
-          // Check LiveState
-          const liveState = playerInfo.liveState;
-          const player: Player | undefined = this.playerInfoMap.get(
-            playerInfo.uId
-          );
-          if (liveState == 5 && player?.Eliminated == false) {
-            this.OnEliminated(playerInfo);
-            this.playerInfoMap.set(playerInfo.uId, {
-              Eliminated: true,
-            });
-          }
+          CheckElimination(this, playerInfo);
         }
       });
   }

@@ -194,7 +194,7 @@
       },
       "health": 100,
       "healthMax": 100,
-      "liveState": 0,
+      "liveState": 5,
       "killNum": 1,
       "killNumBeforeDie": 1,
       "playerKey": 4202635735,

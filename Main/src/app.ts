@@ -16,7 +16,7 @@ let vmix_handler = new VMix_Handler(vmix_url);
 let pcob_handler = new PCOB_Handler(pcob_url);
 
 vmix_handler.SetCallbacks(pcob_handler);
-vmix_handler.LoadGTs();
+vmix_handler.LoadInGameGTs();
 pcob_handler.Start();
 
 app.listen(port, () => {

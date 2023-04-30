@@ -8,7 +8,8 @@ import { Shortcuts } from "./Shortcuts/Shortcuts";
 import { Input, FileType } from "./Shortcuts/Input";
 
 export class VMix_Handler {
-  url: string;
+  private url: string;
+  private ActiveGTs: Map<number, string> = new Map();
 
   constructor(vmix_url: string) {
     this.url = vmix_url;
@@ -18,7 +19,7 @@ export class VMix_Handler {
     PCOB_Handler.OnEliminated = this.Elimination.bind(this);
   }
 
-  LoadGTs() {
+  LoadInGameGTs() {
     const GTZIP_INGAME_PATH = getConfig().GTZIP_INGAME_PATH;
 
     fs.readdirSync(GTZIP_INGAME_PATH).forEach((file) => {

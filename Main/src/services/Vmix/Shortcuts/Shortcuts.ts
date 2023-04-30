@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { getConfig } from "@configs/env";
+import { env } from "@configs/env";
 
 export interface IApi {
   Function: string;
@@ -10,7 +10,7 @@ export class Shortcuts {
   private prefix: string;
 
   constructor(url: string) {
-    this.prefix = getConfig().HTTP + "://" + url + "/api/?";
+    this.prefix = env.HTTP + "://" + url + "/api/?";
   }
 
   async SendAPIRequest(IApi: IApi) {

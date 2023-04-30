@@ -1,4 +1,4 @@
-import { IApi } from "./Shortcuts";
+import { IApi } from "../Shortcuts";
 
 export const FileType = {
     Title: "Title"

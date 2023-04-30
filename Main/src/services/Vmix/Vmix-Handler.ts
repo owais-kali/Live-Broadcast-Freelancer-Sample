@@ -1,13 +1,12 @@
 import 'module-alias/register';
 
 import axios, { AxiosResponse } from "axios";
-import fs from "fs";
 
 import { playerInfo } from "@services/types/playerInfo";
 import { PCOB_Handler } from "@services/PCOB/PCOB-Handler";
-import { getConfig } from "@configs/env";
+import { env } from "@configs/env";
 import { Shortcuts } from "./Shortcuts/Shortcuts";
-import { Input, FileType } from "./Shortcuts/Input";
+import { Input, FileType } from "./Shortcuts/Functions/Input";
 
 export class VMix_Handler {
   private url: string;
@@ -21,32 +20,9 @@ export class VMix_Handler {
     PCOB_Handler.OnEliminated = this.Elimination.bind(this);
   }
 
-  LoadInGameGTs() {
-    const GTZIP_INGAME_PATH = getConfig().GTZIP_INGAME_PATH;
-
-    fs.readdirSync(GTZIP_INGAME_PATH).forEach((file) => {
-      const filepath:string = GTZIP_INGAME_PATH+"\\"+file;
-
-        let shortcuts = new Shortcuts(this.url);
-        let input = new Input();
-        let ft:string = FileType.Title;
-
-        input.AddInput(ft, filepath);
-
-        shortcuts.SendAPIRequest(input);
-    });
-  }
-
   Elimination(playerInfo: playerInfo) {
     console.log(
       "player: " + JSON.stringify(playerInfo.playerName) + " is dead!"
-    );
-    console.log(
-      "req:" +
-        "http://" +
-        this.url +
-        "/api/?Function=SetText&Input=elimination.gtzip&SelectedName=RANK.Text&Value=" +
-        playerInfo.playerName
     );
     axios
       .get(

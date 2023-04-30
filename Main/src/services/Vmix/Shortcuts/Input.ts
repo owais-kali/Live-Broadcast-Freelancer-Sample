@@ -12,4 +12,8 @@ export class Input implements IApi{
         this.Function = "AddInput";
         this.Value = FileType + '|' + FilePath;
     }
+
+    RemoveInput(){
+        
+    }
 }

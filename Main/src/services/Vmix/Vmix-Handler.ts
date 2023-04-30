@@ -1,9 +1,11 @@
+import 'module-alias/register';
+
 import axios, { AxiosResponse } from "axios";
 import fs from "fs";
 
-import { playerInfo } from "../types/playerInfo";
-import { PCOB_Handler } from "../PCOB/PCOB-Handler";
-import { getConfig } from "../env";
+import { playerInfo } from "@services/types/playerInfo";
+import { PCOB_Handler } from "@services/PCOB/PCOB-Handler";
+import { getConfig } from "@configs/env";
 import { Shortcuts } from "./Shortcuts/Shortcuts";
 import { Input, FileType } from "./Shortcuts/Input";
 

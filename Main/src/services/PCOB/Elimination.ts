@@ -1,5 +1,5 @@
-import { Player } from "../types/Player";
-import { playerInfo } from "../types/playerInfo";
+import { Player } from "@services/types/Player";
+import { playerInfo } from "@services/types/playerInfo";
 import { PCOB_Handler } from "./PCOB-Handler";
 
 export function CheckElimination(PCOB_Handler: PCOB_Handler, playerInfo: playerInfo){    

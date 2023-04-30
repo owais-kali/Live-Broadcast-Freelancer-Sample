@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from "axios";
-import { getConfig } from "../../env";
+import { getConfig } from "@configs/env";
 
 export interface IApi {
   Function: string;

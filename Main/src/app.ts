@@ -4,7 +4,7 @@ import express, { Express, Request, Response } from "express";
 import { VMix_Handler } from "./services/Vmix/Vmix-Handler";
 import { PCOB_Handler } from "./services/PCOB/PCOB-Handler";
 import { env } from "@configs/env";
-import { GT, LoadInGameGTs } from '@services/Vmix/GTs/GTs';
+import { LoadInGameGTs } from '@services/Vmix/GTs/GTs';
 
 const app: Express = express();
 const port = 3000;

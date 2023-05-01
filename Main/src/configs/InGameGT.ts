@@ -1,4 +1,4 @@
-export const InGameGT = {
+export const InGameGT = Object.freeze({
   AIR_DROP_LOOTED: "AIR DROP LOOTED.gtzip",
 
   DEAD_ALIVE_18_TEAMS: "DEAD ALIVE 18 TEAMS.gtzip",
@@ -24,4 +24,4 @@ export const InGameGT = {
   MAP_x_OVERALL_STANDINGS: "MAP + OVERALL STANDINGS.gtzip",
 
   MATCH__INTRO: "MATCH  INTRO.gtzip",
-};
+});

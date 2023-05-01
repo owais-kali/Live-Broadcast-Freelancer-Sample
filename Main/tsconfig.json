@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+      "target": "es5",                          
+      "module": "commonjs",                    
+      "lib": ["es6", "ES2021.String"],                     
+      "allowJs": true,
+      "outDir": "build",                          
+      "rootDir": "src",
+      "baseUrl": "./src",
+      "strict": true,         
+      "noImplicitAny": true,
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "paths": {
+        "@configs/*": ["configs/*"],
+        "@services/*": ["services/*"],
+    }
+    }
+  }

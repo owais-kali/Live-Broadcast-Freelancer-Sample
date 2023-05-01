@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from "axios";
 
-import { Player } from "../types/Player";
-import { playerInfo, playerInfoList } from "../types/playerInfo";
+import { Player } from "@services/types/Player";
+import { playerInfo, playerInfoList } from "@services/types/playerInfo";
 import { CheckElimination } from "./Elimination";
 
 export class PCOB_Handler {

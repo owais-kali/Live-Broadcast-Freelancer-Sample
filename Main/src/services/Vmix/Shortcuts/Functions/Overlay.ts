@@ -1,4 +1,4 @@
-import { IApi } from "../Shortcuts";
+import { IApi } from "@Vmix/Shortcuts/IApi";
 
 export class Overlay implements IApi {
   Function: string= ""
@@ -19,7 +19,7 @@ export class Overlay implements IApi {
 
     MultiViewOverlayOn: "MultiViewOverlayOn",
 
-    OverlayInput_1: "OverlayInput 1",
+    OverlayInput_1: "OverlayInput1",
 
     OverlayInput_lIn: "OverlayInput_lIn",
 

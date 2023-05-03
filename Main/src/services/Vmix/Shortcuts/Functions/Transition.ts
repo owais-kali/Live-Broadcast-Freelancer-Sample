@@ -1,4 +1,4 @@
-import { IApi } from "../Shortcuts";
+import { IApi } from "@Vmix/Shortcuts/IApi";
 
 export class Transition implements IApi {
   Input: string = "";

@@ -1,4 +1,4 @@
-import { IApi } from "@Vmix/Shortcuts/Shortcuts";
+import { IApi } from "@Vmix/Shortcuts/IApi";
 
 export const FileType = {
   Title: "Title",

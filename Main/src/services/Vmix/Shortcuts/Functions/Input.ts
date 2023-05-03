@@ -1,10 +1,14 @@
 import { IApi } from "@Vmix/Shortcuts/IApi";
+import { GT_Settings } from "@services/Vmix/GTs/GT_Settings";
 
 export const FileType = {
   Title: "Title",
 };
 
 export class Input implements IApi {
+  AddGT_Setting(GT_Settings: GT_Settings): void {
+    throw new Error("Method not implemented.");
+  }
   Input: string = "";
   Function: string = "";
   Value: string = "";

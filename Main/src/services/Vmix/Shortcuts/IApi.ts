@@ -1,3 +1,5 @@
+import { GT_Settings } from "../GTs/GT_Settings";
+
 export interface IApi {
   Function: string;
 
@@ -17,4 +19,6 @@ export interface IApi {
   Title: string;
   Description1: string;
   Description2: string;
+
+  AddGT_Setting(GT_Settings: GT_Settings): void;
 }

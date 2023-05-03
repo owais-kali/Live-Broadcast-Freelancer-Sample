@@ -1,14 +1,20 @@
 import { IApi } from "@Vmix/Shortcuts/IApi";
+import { GT_Settings } from "@services/Vmix/GTs/GT_Settings";
 
 export class Overlay implements IApi {
-  Function: string= ""
-  Value: string= ""
-  Input: string= ""
-  Duration: number= 0
-  Mix: number= 0
-  Title: string= ""
-  Description1: string= ""
-  Description2: string= ""
+  
+  AddGT_Setting(GT_Settings: GT_Settings): void {
+    throw new Error("Method not implemented.");
+  }
+
+  Function: string = "";
+  Value: string = "";
+  Input: string = "";
+  Duration: number = 0;
+  Mix: number = 0;
+  Title: string = "";
+  Description1: string = "";
+  Description2: string = "";
 
   Function_Names = Object.freeze({
     Move_Multi_ViewOverlay: "Move_Multi_ViewOverlay",
@@ -25,7 +31,7 @@ export class Overlay implements IApi {
 
     OverlayInput_1Last: "OverlayInput_1Last",
 
-    Overlayinput_10f: "Overlayinput_10f",
+    OverlayInput_10f: "OverlayInput_10f",
 
     OverlayInput_10ut: "OverlayInput_10ut",
 
@@ -33,21 +39,21 @@ export class Overlay implements IApi {
 
     OverlayInput2: "OverlayInput2",
 
-    Overlayinout2In: "Overlayinout2In",
+    OverlayInout2In: "OverlayInout2In",
 
-    Overlavinput2Last: "Overlavinput2Last",
+    OverlayInput2Last: "OverlayInput2Last",
 
-    Overlayinput_2Off: "Overlayinput_2Off",
+    OverlayInput_2Off: "OverlayInput_2Off",
 
-    Overlayinput20ut: "Overlayinput20ut",
+    OverlayInput20ut: "OverlayInput20ut",
 
-    Overlayinput2Zoom: "Overlayinput2Zoom",
+    OverlayInput2Zoom: "OverlayInput2Zoom",
 
-    Overlayinput3: "Overlayinput3",
+    OverlayInput3: "OverlayInput3",
 
-    Overlayinput3in: "Overlayinput3in",
+    OverlayInput3in: "OverlayInput3in",
 
-    Overlayinput_3Last: "Overlayinput_3Last",
+    OverlayInput_3Last: "OverlayInput_3Last",
 
     OverlayInput30ff: "OverlayInput30ff",
 
@@ -55,23 +61,23 @@ export class Overlay implements IApi {
 
     OverlayInput3Zoom: "OverlayInput3Zoom",
 
-    OverlavInput4: "OverlavInput4",
+    OverlayInput4: "OverlayInput4",
 
-    Overlayinput4In: "Overlayinput4In",
+    OverlayInput4In: "OverlayInput4In",
 
     OverlayInput_4Last: "OverlayInput_4Last",
 
-    Overlayinput40ff: "Overlayinput40ff",
+    OverlayInput40ff: "OverlayInput40ff",
 
-    Overlayinput40ut: "Overlayinput40ut",
+    OverlayInput40ut: "OverlayInput40ut",
 
-    Overlavinput4Zoom: "Overlavinput4Zoom",
+    OverlayInput4Zoom: "OverlayInput4Zoom",
 
-    OverlavInputAlIOff: "OverlavInputAlIOff",
+    OverlayInputAlIOff: "OverlayInputAlIOff",
 
-    PreviewOverlayinout1: "PreviewOverlayinout1",
+    PreviewOverlayInout1: "PreviewOverlayInout1",
 
-    PreviewOverlayinput: "PreviewOverlayinput",
+    PreviewOverlayInput: "PreviewOverlayInput",
 
     PreviewOverlayInput3: "PreviewOverlayInput3",
 

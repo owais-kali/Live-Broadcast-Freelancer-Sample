@@ -1,4 +1,4 @@
-export function CreatVars1(file: string): String {
+export function CreateVars1(file: string): String {
   let out: String = file;
   out = out.replaceAll(" ", "_");
   out = out.replaceAll(".gtzip", "");
@@ -6,7 +6,7 @@ export function CreatVars1(file: string): String {
   return out;
 }
 
-export function CreatVars2(file: string): String {
+export function CreateVars2(file: string): String {
   let out: String = file;
   out += ':"' + file + '",';
   return out;

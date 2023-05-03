@@ -3,10 +3,10 @@ import { env } from "@configs/env";
 
 export interface IApi {
   Function: string;
-  
+
   /**Value for the Function */
   Value: string;
-  
+
   /**
    * Name of the GT file example
    *  @constant InGameGT.ELIMINATION;
@@ -22,25 +22,21 @@ export interface IApi {
   Description2: string;
 }
 
-export class Shortcuts {
-  private prefix: string;
+const VMIXAPI_Prefix = env.HTTP + "://" + env.VMIX_URL + "/api/?";
 
-  constructor(url: string) {
-    this.prefix = env.HTTP + "://" + url + "/api/?";
-  }
+export async function SendAPIRequest(IApi: IApi) {
+  const api: string = new URL(
+    VMIXAPI_Prefix + "Function=" + IApi.Function + "&Value=" + IApi.Value
+  )
+    .toString()
+    .replace("+", "%2b");
 
-  async SendAPIRequest(IApi: IApi) {
-    const api: string = new URL(
-      this.prefix + "Function=" + IApi.Function + "&Value=" + IApi.Value
-    ).toString().replace('+','%2b');
-
-    await axios.get(api).then(
-      (res: AxiosResponse) => {
-        console.log("response: " + res);
-      },
-      (err: AxiosResponse) => {
-        console.log("err: " + err);
-      }
-    );
-  }
+  await axios.get(api).then(
+    (res: AxiosResponse) => {
+      console.log("response: " + res);
+    },
+    (err: AxiosResponse) => {
+      console.log("err: " + err);
+    }
+  );
 }

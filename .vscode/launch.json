@@ -20,5 +20,15 @@
             "preLaunchTask": "tsc",
             "program": "${workspaceFolder}\\Main\\build\\app.js"
         },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Sandbox",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "preLaunchTask": "tsc",
+            "program": "${workspaceFolder}\\Main\\build\\sandbox\\sandbox.js"
+        },
     ]
 }

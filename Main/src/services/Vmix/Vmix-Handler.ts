@@ -5,8 +5,9 @@ import axios, { AxiosResponse } from "axios";
 import { playerInfo } from "@services/types/playerInfo";
 import { PCOB_Handler } from "@services/PCOB/PCOB-Handler";
 import { env } from "@configs/env";
-import { Shortcuts } from "./Shortcuts/Shortcuts";
+import { IApi, SendAPIRequest } from "./Shortcuts/Shortcuts";
 import { Input, FileType } from "./Shortcuts/Functions/Input";
+import { Overlay } from './Shortcuts/Functions/Overlay';
 
 export class VMix_Handler {
   private url: string;
@@ -34,5 +35,12 @@ export class VMix_Handler {
       .then((res: AxiosResponse) => {
         // console.log(res);
       });
-  }
+
+       const elim:Overlay  = new Overlay();
+        elim.Function = elim.Function_Names.OverlayInput_1;
+      SendAPIRequest(elim)
+    }
+
+
+
 }

@@ -2,11 +2,6 @@ import { IApi } from "@Vmix/Shortcuts/IApi";
 import { GT_Settings } from "@services/Vmix/GTs/GT_Settings";
 
 export class Overlay implements IApi {
-  
-  AddGT_Setting(GT_Settings: GT_Settings): void {
-    throw new Error("Method not implemented.");
-  }
-
   Function: string = "";
   Value: string = "";
   Input: string = "";
@@ -85,4 +80,9 @@ export class Overlay implements IApi {
 
     SetMultiViewOverlay: "SetMultiViewOverlay",
   });
+
+    
+  AddGT_Setting(GT_Settings: GT_Settings): void {
+    
+  }
 }

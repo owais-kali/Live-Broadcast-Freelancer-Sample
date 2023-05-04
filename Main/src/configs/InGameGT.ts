@@ -15,13 +15,23 @@ export const InGameGT = Object.freeze({
 
   INGAME_OVERLAY: "INGAME OVERLAY.gtzip",
 
-  MAP_x_DMG: "MAP + DMG.gtzip",
+  MAP_x_DMG: "MAP x DMG.gtzip",
 
-  MAP_x_ELIMS: "MAP + ELIMS.gtzip",
+  MAP_x_ELIMS: "MAP x ELIMS.gtzip",
 
-  MAP_x_LONG_ELIM: "MAP + LONG ELIM.gtzip",
+  MAP_x_LONG_ELIM: "MAP x LONG ELIM.gtzip",
 
-  MAP_x_OVERALL_STANDINGS: "MAP + OVERALL STANDINGS.gtzip",
+  MAP_x_OVERALL_STANDINGS: "MAP x OVERALL STANDINGS.gtzip",
 
   MATCH__INTRO: "MATCH  INTRO.gtzip",
+
+  RAMPAGE: "RAMPAGE.gtzip",
+
+  TOP_4_DEAD_ALIVE: "TOP 4 DEAD ALIVE.gtzip",
+
+  TOP_4_WIN_RATIO: "TOP 4 WIN RATIO.gtzip",
+
+  UNSTOPPABLE: "UNSTOPPABLE.gtzip",
+
+  VEHICLE_ELIM: "VEHICLE ELIM.gtzip",
 });

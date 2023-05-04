@@ -1,4 +1,5 @@
-import { CreatVars1, CreatVars2 } from "./CreateVar";
+import { env } from "@configs/env";
+import fs from "fs";
 
 const lol: string[] = [
   "Move_Multi_ViewOverlay",
@@ -37,8 +38,12 @@ const lol: string[] = [
   "SetMultiViewOverlay",
 ];
 
-for (let index = 0; index < lol.length; index++) {
-  const element = lol[index];
-  const out: String = CreatVars2(element);
-  console.log(out)
+export function Sandbox1() {
+  fs.readdirSync(env.GTZIP_INGAME_PATH).forEach((file) => {
+    const filepath: String = env.GTZIP_INGAME_PATH + "\\" + file;
+    const var_name = file;
+    file = file.replaceAll(".gtzip", "")
+    file = file.replaceAll(" ", "_")
+    console.log(file + ":\"" +var_name+"\",");
+  });
 }

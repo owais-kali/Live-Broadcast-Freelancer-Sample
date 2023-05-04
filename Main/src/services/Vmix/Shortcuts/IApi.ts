@@ -19,6 +19,4 @@ export interface IApi {
   Title: string;
   Description1: string;
   Description2: string;
-
-  AddGT_Setting(GT_Settings: GT_Settings): void;
 }

@@ -22,6 +22,9 @@
   },
   "_moduleAliases": {
     "@configs": "build/configs",
-    "@services": "build/services"
+    "@services": "build/services",
+    "@Vmix/*": "build/services/Vmix",
+    "@PCOB/*": "build/services/PCOB",
+    "@sandbox/*": "build/sandbox"
   }
 }

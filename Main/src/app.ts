@@ -8,6 +8,7 @@ import { LoadInGameGTs } from '@services/Vmix/GTs/GTs';
 import { Overlay } from '@services/Vmix/Shortcuts/Functions/Overlay';
 import { SendAPIRequest } from '@services/Vmix/Shortcuts/Shortcuts';
 import { InGameGT } from '@configs/InGameGT';
+import { Sandbox1 } from "./sandbox/sandbox";
 
 const app: Express = express();
 const port = 3000;
@@ -15,9 +16,10 @@ const port = 3000;
 let vmix_handler = new VMix_Handler(env.VMIX_URL);
 let pcob_handler = new PCOB_Handler(env.PCOB_URL);
 
-vmix_handler.SetCallbacks(pcob_handler);
+
 // LoadInGameGTs();
 
+vmix_handler.SetCallbacks(pcob_handler);
 pcob_handler.Start();
 
 app.listen(port, () => {

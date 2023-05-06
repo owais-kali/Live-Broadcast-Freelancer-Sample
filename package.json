@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "guid-typescript": "^1.0.9",
+    "xmlhttprequest-ts": "^1.0.1"
+  }
+}

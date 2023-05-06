@@ -1,3 +1,3 @@
 export class Settings {
-  static readonly PopUp_Duration:number = 2;
+  static readonly PopUp_Duration:number = 2000;
 }

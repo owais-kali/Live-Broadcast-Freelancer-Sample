@@ -19,12 +19,5 @@ export async function SendAPIRequest(IApi: IApi) {
 
   console.log("api: " + api);
 
-  await axios.get(api).then(
-    (res: AxiosResponse) => {
-      console.log("response: " + res);
-    },
-    (err: AxiosResponse) => {
-      console.log("err: " + err);
-    }
-  );
+  return axios.get(api);
 }

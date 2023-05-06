@@ -13,9 +13,10 @@ export class Title implements IApi {
   Description1: string = "";
   Description2: string = "";
 
-  SetText(GT_Name: string, value: string): void {
-    this.Function = "Set Text"
+  SetText(GT_Name: string, Title: string ,value: string): void {
+    this.Function = "SetText"
     this.Input = GT_Name;
+    this.Title = Title;
     this.Value = value;
   }
 }

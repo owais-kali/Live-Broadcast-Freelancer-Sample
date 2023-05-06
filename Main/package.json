@@ -28,6 +28,6 @@
     "@Vmix": "build/services/Vmix",
     "@PCOB": "build/services/PCOB",
     "@sandbox": "build/sandbox",
-    "@external": ["build/external"]
+    "@external": "build/external"
   }
 }

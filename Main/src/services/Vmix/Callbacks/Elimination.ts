@@ -6,6 +6,7 @@ import { Overlay } from "@Vmix/Shortcuts/Functions/Overlay";
 import { InGameGT } from "@configs/InGameGT";
 import { ELIMINATION as ELIMINATION_GT } from "@Vmix/GTs/Settings/ELIMINATION";
 import { Settings } from "@configs/Settings";
+import { Title } from "../Shortcuts/Functions/Title";
 
 export function Elimination(playerInfo: playerInfo) {
   const data: ELIMINATION_GT = new ELIMINATION_GT();
@@ -13,11 +14,11 @@ export function Elimination(playerInfo: playerInfo) {
   data.SetText(data.Text.RANK, playerInfo.rank.toString());
   data.SetText(data.Text.TEAM_NAME, playerInfo.teamName);
 
+  data.Execute();
+
   const transition: Overlay = new Overlay();
   transition.Function = transition.Function_Names.OverlayInput_1;
   transition.Input = InGameGT.ELIMINATION;
-
-  
 
   SendAPIRequest(transition).then((res) => {
     setTimeout(() => {

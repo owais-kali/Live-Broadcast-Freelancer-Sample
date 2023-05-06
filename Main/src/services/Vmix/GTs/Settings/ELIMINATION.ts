@@ -1,6 +1,16 @@
 import { GT_Settings } from "@Vmix/GTs/GT_Settings";
+import { InGameGT } from "@configs/InGameGT";
+import { BatchAPI } from "@services/Vmix/Shortcuts/BatchAPI";
+import { Title } from "@services/Vmix/Shortcuts/Functions/Title";
+import { IApi } from "@services/Vmix/Shortcuts/IApi";
+import { SendAPIRequest } from "@services/Vmix/Shortcuts/Shortcuts";
+import { AxiosResponse } from "axios";
 
 export class ELIMINATION implements GT_Settings {
+  promises: Promise<AxiosResponse<any, any>>[] = [];
+
+  readonly Name: string = InGameGT.ELIMINATION;
+
   Text = Object.freeze({
     ELIMS: "ELIMS.Text",
     RANK: "RANK.Text",
@@ -11,8 +21,8 @@ export class ELIMINATION implements GT_Settings {
     TEAM_LOGO: "TEAM LOGO.Source",
   });
 
-  TextValue = new Map<string, string>();
-  ImageValue = new Map<string, string>();
+  private TextValue = new Map<string, string>();
+  private ImageValue = new Map<string, string>();
 
   constructor() {
     this.TextValue.set(this.Text.ELIMS, "");
@@ -22,9 +32,19 @@ export class ELIMINATION implements GT_Settings {
     this.ImageValue.set(this.Images.TEAM_LOGO, "");
   }
 
-  SetText(name: string, value: string): void{
-    if(this.TextValue.has(name)){
+  SetText(name: string, value: string): void {
+    if (this.TextValue.has(name)) {
       this.TextValue.set(name, value);
+
+      let title: Title = new Title();
+      title.SetText(this.Name, name, value);
+      SendAPIRequest(title)
     }
+  }
+
+  Execute(): void {
+    // let batch_api: BatchAPI = new BatchAPI(this.promises);
+    // batch_api.BatchExecute().then();
+    // this.promises.length = 0;
   }
 }

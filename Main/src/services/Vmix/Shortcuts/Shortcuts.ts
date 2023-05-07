@@ -21,7 +21,5 @@ export async function SendAPIRequest(
     .toString()
     .replace("+", "%2b");
 
-  console.log("api: " + api);
-
   axios.get(api);
 }

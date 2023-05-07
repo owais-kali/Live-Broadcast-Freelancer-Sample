@@ -17,7 +17,6 @@
       "@Vmix/*": ["services/Vmix/*"],
       "@PCOB/*": ["services/PCOB/*"],
       "@sandbox/*": ["sandbox/*"],
-      "@external/*": ["external/*"]
     }
   },
   "include": ["src/*"],

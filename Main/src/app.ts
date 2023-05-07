@@ -10,7 +10,7 @@ import { SendAPIRequest } from '@services/Vmix/Shortcuts/Shortcuts';
 import { InGameGT } from '@configs/InGameGT';
 import { Sandbox1 } from "./sandbox/sandbox";
 import { Start } from '@sandbox/TestBatchAPI';
-import { Testing } from '@services/WebApp/Testing';
+import {Main} from '@services/WebApp/index';
 import path from "path";
 
 const app: Express = express();
@@ -23,6 +23,8 @@ let pcob_handler = new PCOB_Handler(env.PCOB_URL);
 
 vmix_handler.SetCallbacks(pcob_handler);
 pcob_handler.Start();
+
+app.use('/App',Main());
 
 app.listen(port, () => {
   console.log(`VMix Handler listening on port ${port}`);

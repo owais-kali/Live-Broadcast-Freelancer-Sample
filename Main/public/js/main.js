@@ -1,0 +1,1 @@
+const axios = require('dist/axios.min.js');

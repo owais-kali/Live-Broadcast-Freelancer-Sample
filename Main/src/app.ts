@@ -21,11 +21,8 @@ let pcob_handler = new PCOB_Handler(env.PCOB_URL);
 
 // LoadInGameGTs();
 
-// vmix_handler.SetCallbacks(pcob_handler);
-// pcob_handler.Start();
-
-const router = Testing();
-app.use('/App', router);
+vmix_handler.SetCallbacks(pcob_handler);
+pcob_handler.Start();
 
 app.listen(port, () => {
   console.log(`VMix Handler listening on port ${port}`);

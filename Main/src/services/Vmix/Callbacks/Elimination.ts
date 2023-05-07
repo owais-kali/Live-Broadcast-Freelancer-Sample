@@ -11,10 +11,8 @@ import { Title } from "../Shortcuts/Functions/Title";
 export function Elimination(playerInfo: playerInfo) {
   const data: ELIMINATION_GT = new ELIMINATION_GT();
   data.SetText(data.Text.ELIMS, playerInfo.killNum.toString());
-  data.SetText(data.Text.RANK, playerInfo.rank.toString());
+  data.SetText(data.Text.RANK, "%23"+playerInfo.rank.toString());
   data.SetText(data.Text.TEAM_NAME, playerInfo.teamName);
-
-  data.Execute();
 
   const transition: Overlay = new Overlay();
   transition.Function = transition.Function_Names.OverlayInput_1;

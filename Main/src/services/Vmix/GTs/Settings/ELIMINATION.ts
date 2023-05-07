@@ -12,9 +12,9 @@ export class ELIMINATION implements GT_Settings {
   readonly Name: string = InGameGT.ELIMINATION;
 
   Text = Object.freeze({
-    ELIMS: "ELIMS.Text",
+    ELIMS: "ELIMS .Text",
     RANK: "RANK.Text",
-    TEAM_NAME: "TEAM NAME.Text",
+    TEAM_NAME: "TEAM NAME .Text",
   });
 
   Images = Object.freeze({
@@ -40,11 +40,5 @@ export class ELIMINATION implements GT_Settings {
       title.SetText(this.Name, name, value);
       SendAPIRequest(title)
     }
-  }
-
-  Execute(): void {
-    // let batch_api: BatchAPI = new BatchAPI(this.promises);
-    // batch_api.BatchExecute().then();
-    // this.promises.length = 0;
   }
 }

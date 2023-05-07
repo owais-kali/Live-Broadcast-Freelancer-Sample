@@ -3,6 +3,4 @@ export interface GT_Settings {
   Images: Object;
 
   SetText(name: string, value: string): void;
-
-  Execute(): void;
 }

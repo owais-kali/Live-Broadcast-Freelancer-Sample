@@ -12,8 +12,11 @@ import { Sandbox1 } from "./sandbox/sandbox";
 import { Start } from '@sandbox/TestBatchAPI';
 import {Main} from '@services/WebApp/index';
 import path from "path";
+import Bootstrap from './middlewares/Kernel';
 
-const app: Express = express();
+import Locals from './providers/Locals';
+
+var app: express.Application = express();
 const port = 3000;
 
 let vmix_handler = new VMix_Handler(env.VMIX_URL);
@@ -25,6 +28,15 @@ vmix_handler.SetCallbacks(pcob_handler);
 pcob_handler.Start();
 
 app.use('/App',Main());
+
+app = Locals.init(app);
+app = Bootstrap.init(app);
+
+app.get('/login', (req, res)=>{
+  return res.render('pages/login', {
+    title: 'LogIn'
+  });
+})
 
 app.listen(port, () => {
   console.log(`VMix Handler listening on port ${port}`);

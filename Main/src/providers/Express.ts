@@ -16,9 +16,14 @@ class Express {
   constructor() {
     this.express = express();
 
+    this.mountDotEnv();
     this.mountMiddlewares();
     this.mountRoutes();
   }
+
+  private mountDotEnv (): void {
+		this.express = Locals.init(this.express);
+	}
 
   /**
    * Mounts all the defined middlewares

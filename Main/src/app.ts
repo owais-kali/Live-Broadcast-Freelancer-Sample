@@ -39,7 +39,5 @@ let pcob_handler = new PCOB_Handler(env.PCOB_URL);
 //   });
 // });
 
-/**
- * Run the Server on Clusters
- */
 App.loadServer();
+

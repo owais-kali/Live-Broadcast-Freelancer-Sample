@@ -1,27 +1,26 @@
-import mongoose from 'mongoose';
-import * as bluebird from 'bluebird';
-import { MongoError } from 'mongodb';
+import * as mogoose_promise from "mongoose";
+import mongoose from "mongoose";
+import { ConnectOptions } from "mongoose";
 
-import Locals from './Locals';
-import Log from '../middlewares/Log';
+import * as Promise from "bluebird";
+import { MongoError } from "mongodb";
+
+import Locals from "./Locals";
+import Log from "../middlewares/Log";
 
 export class Database {
-	// Initialize your database pool
-	public static init (): any {
-		const dsn = Locals.config().mongooseUrl;
-		const options = { useNewUrlParser: true, useUnifiedTopology: true };
+  // Initialize your database pool
+  public static init(): any {
+    const dsn = Locals.config().mongooseUrl;
+    const options: ConnectOptions = { dbName: "ESportCounty", useNewUrlParser: true, useUnifiedTopology: true };
 
-		(<any>mongoose).Promise = bluebird;
+    (mogoose_promise as any).Promise = Promise;
 
-		mongoose.connect(dsn)
-			.then(() => {
-			Log.info('connected to mongo server at: ' + dsn);
-		}).catch((error: MongoError) => {
-				Log.info('Failed to connect to the Mongo server!!');
-				console.log(error);
-				throw error;
-		});
-	}
+    mongoose
+      .connect(dsn, options)
+      .then(() => console.log("MongoDB connected"))
+      .catch((err) => console.log(`MongoDB connection error: ${err}`));
+  }
 }
 
 export default mongoose;

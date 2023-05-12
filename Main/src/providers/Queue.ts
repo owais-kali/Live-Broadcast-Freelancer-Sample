@@ -1,13 +1,8 @@
-/**
- * Sends your verify email
- *
- * @author Faiz A. Farooqui <faiz@geekyants.com>
- */
-
 import * as kue from 'kue';
 
 import Locals from './Locals';
 import Log from '../middlewares/Log';
+import { Job } from 'kue';
 
 class Queue {
 	public jobs: any;
@@ -36,10 +31,10 @@ class Queue {
 	private removeProcessedJob (_id): void {
 		Log.info(`Queue :: #${_id} Processed`);
 
-		kue.Job.get(_id, (_err, _job) => {
+		kue.Job.get(_id, (_err?: any, _job?: Job) => {
 			if (_err) { return; }
 
-			_job.remove((_err) => {
+			_job?.remove((_err) => {
 				if (_err) { throw _err; }
 
 				Log.info(`Queue :: #${_id} Removed Processed Job`);

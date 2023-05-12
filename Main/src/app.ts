@@ -15,7 +15,7 @@ import path from "path";
 import Bootstrap from "./middlewares/Kernel";
 
 import Locals from "./providers/Locals";
-import App from './providers/App';
+import App from "./providers/App";
 
 // var app: express.Application = express();
 // const port = 3000;
@@ -39,5 +39,12 @@ let pcob_handler = new PCOB_Handler(env.PCOB_URL);
 //   });
 // });
 
-App.loadServer();
+/**
+ * Run the Database pool
+ */
+App.loadDatabase();
 
+/**
+ * Run the Server on Clusters
+ */
+App.loadServer();

@@ -13,15 +13,15 @@ class Locals {
 	 * Makes env configs available for your app
 	 * throughout the app's runtime
 	 */
-	public static config(): any {
+	public static config() {
 		dotenv.config({ path: path.join(__dirname, '../../.env') });
 
 		const url = process.env.APP_URL || `http://localhost:${process.env.PORT}`;
-		const port = process.env.PORT || 4040;
+		const port: number = 4040;
 		const appSecret = process.env.APP_SECRET || 'This is your responsibility!';
-		const mongooseUrl = process.env.MONGOOSE_URL;
+		const mongooseUrl = "mongodb://0.0.0.0:27017";
 		const maxUploadLimit = process.env.APP_MAX_UPLOAD_LIMIT || '50mb';
-		const maxParameterLimit = process.env.APP_MAX_PARAMETER_LIMIT || '50';
+		const maxParameterLimit: number = 50;
 
 		const name = process.env.APP_NAME || 'NodeTS Dashboard';
 		const keywords = process.env.APP_KEYWORDS || 'somethings';

@@ -1,9 +1,3 @@
-/**
- * Define App Locals & Configs
- *
- * @author Faiz A. Farooqui <faiz@geekyants.com>
- */
-
 import { Application } from 'express';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
@@ -31,7 +25,7 @@ class Locals {
 		const description = process.env.APP_DESCRIPTION || 'Here goes the app description';
 
 		const isCORSEnabled = process.env.CORS_ENABLED || true;
-		const jwtExpiresIn = process.env.JWT_EXPIRES_IN || 3;
+		const jwtExpiresIn: number = 3;
 		const apiPrefix = process.env.API_PREFIX || 'api';
 
 		const logDays = process.env.LOG_DAYS || 10;

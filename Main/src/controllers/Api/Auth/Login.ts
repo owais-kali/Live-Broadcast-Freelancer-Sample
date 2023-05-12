@@ -50,7 +50,7 @@ class Login {
 				const token = jwt.sign(
 					{ email: _email, password: _password },
 					Locals.config().appSecret,
-					{ expiresIn: res.locals.app.jwtExpiresIn * 60 }
+					{ expiresIn: Locals.config().jwtExpiresIn * 60 }
 				);
 
 				// Hide protected columns
@@ -60,7 +60,7 @@ class Login {
 				return res.json({
 					user,
 					token,
-					token_expires_in: res.locals.app.jwtExpiresIn * 60
+					token_expires_in: Locals.config().jwtExpiresIn * 60
 				});
 			});
 		});

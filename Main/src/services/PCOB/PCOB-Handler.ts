@@ -11,7 +11,7 @@ export class PCOB_Handler {
 
   // Callbacks
   OnEliminated: (playerInfo: playerInfo) => void = (playerInfo) => {
-    console.log("On Eliminated called but not handled!");
+    
   };
 
   constructor(pcob_url: string) {

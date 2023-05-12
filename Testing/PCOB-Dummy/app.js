@@ -14,7 +14,11 @@ app.get('/gettotalplayerlist', (req, res) => {
     res.send(data)
   });
 })
-  
+
+app.get('/Test', (req, res) => {
+  console.log("Test: " + res);
+})
+
 app.listen(port, () => {
   console.log(`PCOB-Dummy listening on port ${port}`)
 })

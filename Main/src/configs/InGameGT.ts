@@ -1,0 +1,37 @@
+export const InGameGT = Object.freeze({
+  AIR_DROP_LOOTED: "AIR DROP LOOTED.gtzip",
+
+  DEAD_ALIVE_18_TEAMS: "DEAD ALIVE 18 TEAMS.gtzip",
+
+  DEAD_ALIVE: "DEAD ALIVE.gtzip",
+
+  DOMINATION: "DOMINATION.gtzip",
+
+  ELIMINATION: "ELIMINATION.gtzip",
+
+  FIRST_BLOOD: "FIRST BLOOD.gtzip",
+
+  GRENADIER: "GRENADIER.gtzip",
+
+  INGAME_OVERLAY: "INGAME OVERLAY.gtzip",
+
+  MAP_x_DMG: "MAP x DMG.gtzip",
+
+  MAP_x_ELIMS: "MAP x ELIMS.gtzip",
+
+  MAP_x_LONG_ELIM: "MAP x LONG ELIM.gtzip",
+
+  MAP_x_OVERALL_STANDINGS: "MAP x OVERALL STANDINGS.gtzip",
+
+  MATCH__INTRO: "MATCH  INTRO.gtzip",
+
+  RAMPAGE: "RAMPAGE.gtzip",
+
+  TOP_4_DEAD_ALIVE: "TOP 4 DEAD ALIVE.gtzip",
+
+  TOP_4_WIN_RATIO: "TOP 4 WIN RATIO.gtzip",
+
+  UNSTOPPABLE: "UNSTOPPABLE.gtzip",
+
+  VEHICLE_ELIM: "VEHICLE ELIM.gtzip",
+});

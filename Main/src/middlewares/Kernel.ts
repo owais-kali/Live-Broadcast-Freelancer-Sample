@@ -1,12 +1,14 @@
-import { Application } from 'express';
-
-import Views from './Views';
+import { Application } from "express";
+import Http from './Http';
+import Views from "./Views";
 
 class Kernel {
-	public static init (_express: Application): Application {
+  public static init(_express: Application): Application {
+    // Mount basic express apis middleware
+    _express = Http.mount(_express);
 
-		return _express;
-	}
+    return _express;
+  }
 }
 
 export default Kernel;

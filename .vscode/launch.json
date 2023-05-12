@@ -18,8 +18,8 @@
                 "<node_internals>/**"
             ],
             // "preLaunchTask": "tsc",
-            "outFiles": ["${workspaceFolder}\\Main\\build\\**\\*.js"],
-            "program": "${workspaceFolder}\\Main\\src\\app.ts"
+            "outFiles": ["${workspaceFolder}/Main/build/**/*.js"],
+            "program": "${workspaceFolder}/Main/src/app.ts"
         },
     ]
 }

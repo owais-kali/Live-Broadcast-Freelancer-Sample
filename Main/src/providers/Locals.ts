@@ -10,8 +10,8 @@ class Locals {
 	public static config() {
 		dotenv.config({ path: path.join(__dirname, '../../.env') });
 
-		const url = process.env.APP_URL || `http://localhost:${process.env.PORT}`;
 		const port: number = 4040;
+		const url = process.env.APP_URL || `http://localhost:`+port;
 		const appSecret = process.env.APP_SECRET || 'This is your responsibility!';
 		const mongooseUrl = "mongodb://0.0.0.0:27017";
 		const maxUploadLimit = process.env.APP_MAX_UPLOAD_LIMIT || '50mb';

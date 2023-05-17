@@ -1,9 +1,19 @@
 import { Application } from "express";
-import Http from './Http';
+
+import CORS from './CORS';
+import Http from "./Http";
 import Views from "./Views";
+
+import Locals from '../providers/Locals';
 
 class Kernel {
   public static init(_express: Application): Application {
+    // Check if CORS is enabled
+    if (Locals.config().isCORSEnabled) {
+      // Mount CORS middleware
+      _express = CORS.mount(_express);
+    }
+
     // Mount basic express apis middleware
     _express = Http.mount(_express);
 

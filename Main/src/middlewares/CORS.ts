@@ -4,7 +4,7 @@
  * @author Faiz A. Farooqui <faiz@geekyants.com>
  */
 
-import * as cors from 'cors';
+import cors from 'cors';
 import { Application } from 'express';
 
 import Log from './Log';
@@ -16,10 +16,10 @@ class CORS {
 
 		const options = {
 			origin: Locals.config().url,
-			optionsSuccessStatus: 200		// Some legacy browsers choke on 204
+			optionsSuccessStatus: 200		
 		};
 
-		_express.use(cors(options));
+		_express.use(cors());
 
 		return _express;
 	}

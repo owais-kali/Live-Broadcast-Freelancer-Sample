@@ -27,6 +27,7 @@ class Locals {
 		const isCORSEnabled = process.env.CORS_ENABLED || true;
 		const jwtExpiresIn: number = 3;
 		const apiPrefix = process.env.API_PREFIX || 'api';
+		const proxyPrefix = 'proxy';
 
 		const logDays = process.env.LOG_DAYS || 10;
 
@@ -41,6 +42,7 @@ class Locals {
 		return {
 			appSecret,
 			apiPrefix,
+			proxyPrefix,
 			company,
 			copyright,
 			description,

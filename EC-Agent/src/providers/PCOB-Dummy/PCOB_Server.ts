@@ -1,14 +1,18 @@
 import express from "express";
+import * as http from 'http';
 
-import Locals from "./Locals";
-import Routes from "./Routes";
-import Bootstrap from "../middlewares/Kernel";
+import Locals from "../Locals";
+import Bootstrap from "../../middlewares/Kernel";
 
-class Express {
+import * as gettotalplayerlist from "./gettotalplayerlist"
+
+class PCOB_Server {
   /**
    * Create the express object
    */
   public express: express.Application;
+  private app: http.Server | undefined;
+  private readonly port: number = Locals.config().PCOB_port;
 
   /**
    * Initializes the express server
@@ -18,7 +22,7 @@ class Express {
 
     this.mountDotEnv();
     this.mountMiddlewares();
-    this.mountRoutes();
+    this.mountAPIs();
   }
 
   private mountDotEnv (): void {
@@ -32,22 +36,19 @@ class Express {
     this.express = Bootstrap.init(this.express);
   }
 
-  /**
-   * Mounts all the defined routes
-   */
-  private mountRoutes(): void {
-    this.express = Routes.mountPCOB_API(this.express)
-    this.express = Routes.mountVmixProxy(this.express);
+  private mountAPIs(): void {
+    this.express = gettotalplayerlist.mountAPI(this.express);
   }
 
   /**
    * Starts the express server
    */
-  public init(): any {
-    const port: number = Locals.config().port;
+  public start(): any {
+    if(this.app) return;
 
+    const port = this.port;
     // Start the server on the specified port
-    this.express
+    this.app = this.express
       .listen(port, () => {
         return console.log(
           "\x1b[33m%s\x1b[0m",
@@ -58,7 +59,20 @@ class Express {
         return console.log("Error: ", _error.message);
       });
   }
+
+  /**
+   * Stop the express server
+   */
+  public stop(): any {
+    this.app?.closeAllConnections();
+    this.app?.close();
+    this.app = undefined;
+    console.log(
+      "\x1b[33m%s\x1b[0m",
+      `Server @ 'http://localhost:${this.port}' Stopped`
+    );
+  }
 }
 
 /** Export the express module */
-export default new Express();
+export default new PCOB_Server();

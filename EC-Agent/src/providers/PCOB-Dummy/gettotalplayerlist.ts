@@ -1,6 +1,6 @@
-import { playerInfo } from "./types/playerInfo";
+import express from "express";
 
-export const DefaultPlayerInfo = {
+const DefaultPlayerInfo = {
   playerInfoList: [
     {
       uId: 510047574,
@@ -3174,3 +3174,15 @@ export const DefaultPlayerInfo = {
 };
 
 export let CurrentPlayerInfo = DefaultPlayerInfo;
+
+export function mountAPI(express:express.Application): express.Application {
+  express = express.get("/gettotalplayerlist",(req, res)=>{
+    res.send(CurrentPlayerInfo);
+  })
+
+  return express;
+}
+
+export function UpdateCurrentPlayerInfo(info:any) {
+  CurrentPlayerInfo = info;
+}

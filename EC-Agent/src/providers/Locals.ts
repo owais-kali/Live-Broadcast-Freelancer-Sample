@@ -10,7 +10,7 @@ class Locals {
 		const port: number = 4041;
 		const url = process.env.APP_URL || `http://localhost:`+port;
 
-		const apiPrefix = process.env.API_PREFIX || 'api';
+		const PCOB_API_Prefix = 'pcob';
 		const proxyPrefix = 'proxy';
 
 		const maxUploadLimit = process.env.APP_MAX_UPLOAD_LIMIT || '50mb';
@@ -22,7 +22,7 @@ class Locals {
 		return {
 			port,
 			url,
-			apiPrefix,
+			PCOB_API_Prefix,
 			proxyPrefix,
 			maxUploadLimit,
 			maxParameterLimit,

@@ -13,11 +13,18 @@ class Locals {
 		const apiPrefix = process.env.API_PREFIX || 'api';
 		const proxyPrefix = 'proxy';
 
+		const maxUploadLimit = process.env.APP_MAX_UPLOAD_LIMIT || '50mb';
+		const maxParameterLimit: number = 50;
+		const isCORSEnabled = process.env.CORS_ENABLED || true;
+
 		return {
-			apiPrefix,
-			proxyPrefix,
 			port,
 			url,
+			apiPrefix,
+			proxyPrefix,
+			maxUploadLimit,
+			maxParameterLimit,
+			isCORSEnabled
 		};
 	}
 

@@ -1,7 +1,7 @@
 import { Application } from "express";
 
 import PCOB_API_Router from '../routes/PCOB_API';
-import VmixProxyRouter from "../../../EC-Agent/src/routes/VmixProxy";
+import VmixProxyRouter from "../routes/VmixProxy";
 
 import Locals from "./Locals";
 import Log from "../middlewares/Log";

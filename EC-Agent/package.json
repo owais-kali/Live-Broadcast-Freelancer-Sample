@@ -6,8 +6,10 @@
   "bin": "build/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node build/app.js",
-    "build": "nexe -r build/**/* -r public/**/*/ --build --verbose --output ./EXE/app.exe"
+    "start": "npx ts-node ./src/app.ts",
+    "dev": "npx ts-node-dev ./src/app.ts",
+    "build": "tsc",
+    "build-exe": "npm run build && nexe -r build/**/* --build --verbose --output ./EXE/app.exe"
   },
   "author": "",
   "license": "ISC",

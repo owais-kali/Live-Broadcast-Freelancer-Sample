@@ -17,28 +17,6 @@ import Bootstrap from "./middlewares/Kernel";
 import Locals from "./providers/Locals";
 import App from "./providers/App";
 
-// var app: express.Application = express();
-// const port = 3000;
-
-let vmix_handler = new VMix_Handler(env.VMIX_URL);
-let pcob_handler = new PCOB_Handler(env.PCOB_URL);
-
-// LoadInGameGTs();
-
-// vmix_handler.SetCallbacks(pcob_handler);
-// pcob_handler.Start();
-
-// app.use("/App", Main());
-
-// app = Locals.init(app);
-// app = Bootstrap.init(app);
-
-// app.get("/login", (req, res) => {
-//   return res.render("pages/login", {
-//     title: "LogIn",
-//   });
-// });
-
 /**
  * Run the Database pool
  */

@@ -17,6 +17,8 @@ class Locals {
 		const maxParameterLimit: number = 50;
 		const isCORSEnabled = process.env.CORS_ENABLED || true;
 
+		const PCOB_port = 10086
+
 		return {
 			port,
 			url,
@@ -24,7 +26,8 @@ class Locals {
 			proxyPrefix,
 			maxUploadLimit,
 			maxParameterLimit,
-			isCORSEnabled
+			isCORSEnabled,
+			PCOB_port
 		};
 	}
 

@@ -12,11 +12,7 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "paths": {
-      "@configs/*": ["configs/*"],
-      "@services/*": ["services/*"],
-      "@Vmix/*": ["services/Vmix/*"],
-      "@PCOB/*": ["services/PCOB/*"],
-      "@sandbox/*": ["sandbox/*"],
+      "@/*": ["/*"],
     }
   },
   "include": ["src/*"],

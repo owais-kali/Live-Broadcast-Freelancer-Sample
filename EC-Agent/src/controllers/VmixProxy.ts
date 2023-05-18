@@ -3,6 +3,7 @@ import axios, { AxiosResponse } from "axios";
 export class VmixProxy{
     public static perform (req, res: any): any {
         console.log("Proxy!");
+        axios.get(req.body.api);
         return res.json({"msg": "Done!"})
     }
 }

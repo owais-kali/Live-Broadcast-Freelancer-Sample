@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import {VmixProxy} from '../controllers/VmixProxy/VmixProxy'
+import {VmixProxy} from '../controllers/VmixProxy'
 
 const router = Router();
 

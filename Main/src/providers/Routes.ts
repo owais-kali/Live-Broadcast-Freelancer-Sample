@@ -4,7 +4,7 @@ import Log from '../middlewares/Log';
 
 import webRouter from './../routes/Web';
 import apiRouter from './../routes/Api';
-import VmixProxy from './../routes/VmixProxy'
+import VmixProxy from '../../../EC-Agent/src/routes/VmixProxy'
 
 class Routes {
 	public mountApi(_express: Application): Application {

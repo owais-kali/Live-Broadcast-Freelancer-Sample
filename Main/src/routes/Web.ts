@@ -11,6 +11,6 @@ import path from 'path';
 const router = Router();
 const cache = Cache.cache;
 
-router.use('/App', express.static(`D:/Freelancer/ESports/VMix-Nodejs/LIVE-BROADCAST-AUTOMATION/Main/react_app`))
+router.use('/App', express.static(`D:/Freelancer/ESports/VMix-Nodejs/LIVE-BROADCAST-AUTOMATION/Main/public`))
 
 export default router;

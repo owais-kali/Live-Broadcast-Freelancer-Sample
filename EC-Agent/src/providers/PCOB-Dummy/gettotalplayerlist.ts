@@ -3188,6 +3188,5 @@ export function UpdateCurrentPlayerInfo(info:any) {
 }
 
 export function GetDefaultPlayerInfo(){
-  console.log("got req")
   return DefaultPlayerInfo;
 }

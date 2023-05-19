@@ -45,7 +45,7 @@ function GetTotalPlayerList() {
 
             const input = document.getElementById('Input');
             input.value = CurrentInput;
-            
+
         }).catch((e) => {
             console.log(e);
         })
@@ -60,18 +60,33 @@ function GetTotalPlayerList() {
         })
     }
 
-    const GetCurrent = ()=>{
+    const GetCurrent = () => {
         return CurrentInput;
     }
 
     return (
-        <div className="mb-3">
-            <CFormLabel htmlFor="exampleFormControlTextarea1">GetTotalPlayerList</CFormLabel>
-            <CFormTextarea id="Input" rows="3"></CFormTextarea>
-            <CCol xs>
-                <CButton onClick={GetDefault}>GetDefault</CButton>
-                <CButton onClick={Update}>Update</CButton>
-            </CCol>
+        <div>
+            <div className="mb-3">
+                <CFormLabel htmlFor="exampleFormControlTextarea1">GetTotalPlayerList</CFormLabel>
+                <CFormTextarea id="Input" rows="3" ></CFormTextarea>
+            </div>
+            <div className="mb-3">
+                <CCol xs>
+                    <CButton onClick={GetDefault}>GetDefault</CButton>
+                    <CButton onClick={Update}>Update</CButton>
+                </CCol>
+            </div>
+        </div>
+    )
+}
+
+function ConsoleLog() {
+    return (
+        <div>
+            <div className="mb-3">
+                <CFormLabel htmlFor="exampleFormControlTextarea1">GetTotalPlayerList</CFormLabel>
+                <CFormTextarea id="Input" rows="3" readOnly ></CFormTextarea>
+            </div>
         </div>
     )
 }
@@ -93,8 +108,9 @@ const Test = () => {
                                     <CButton onClick={StopPCOBDummy}>StopPCOBDummy</CButton>
                                 </CCol>
                             </div>
-
                             <GetTotalPlayerList />
+
+                            <ConsoleLog />
                         </CForm>
                     </CCardBody>
                 </CCard>

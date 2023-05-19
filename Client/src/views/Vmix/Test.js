@@ -126,7 +126,7 @@ const Test = (value) => {
     <CRow>
       <CCol xs={12}>
         <CFormFloating key="1" className="mb-3">
-          <CFormInput id="floatingInput" placeholder={Data.InGamePath} defaultValue={Data.InGamePath} onInput={(e) => { OnInGameGT_Path(e.target.value) }} />
+          <CFormInput id="floatingInput" placeholder="value" defaultValue={Data.InGamePath} onInput={(e) => { OnInGameGT_Path(e.target.value) }} />
           <CFormLabel htmlFor="floatingInput">InGameGT Path</CFormLabel>
         </CFormFloating>
         <CCard className="mb-4">

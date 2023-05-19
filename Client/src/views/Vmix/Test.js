@@ -33,7 +33,9 @@ import { DocsExample } from 'src/components'
 import ReactImg from 'src/assets/images/react.jpg'
 
 import { Elimination } from 'src/services/Vmix/Callbacks/Elimination.ts'
-import { LoadInGameGT} from 'src/services/Vmix/GTs/GTs.ts'
+import { LoadInGameGT, UnLoadInGameGT } from 'src/services/Vmix/GTs/GTs.ts'
+
+import { ELIMINATION as ELIMINATION_GT } from "src/services/Vmix/GTs/Settings/ELIMINATION";
 
 var InGamePath = ""
 
@@ -49,8 +51,18 @@ function GT_Card({ GT_Name, GT_TEXTS }) {
   }
 
   const OnShowClicked = () => {
-    console.log("show button clicked!: path: "+InGamePath)
-    LoadInGameGT(InGamePath+"\\ELIMINATION.gtzip");
+    console.log("show button clicked!: path: " + InGamePath)
+    LoadInGameGT(InGamePath + "\\ELIMINATION.gtzip").then(() => {
+      const data = new ELIMINATION_GT();
+      GT_TEXTS.forEach(element => {
+        
+      });
+    });
+  }
+
+  const OnHideClicked = () => {
+    console.log("show button clicked!: path: " + InGamePath)
+    UnLoadInGameGT("ELIMINATION.gtzip");
   }
 
   return (
@@ -73,7 +85,7 @@ function GT_Card({ GT_Name, GT_TEXTS }) {
             <CRow className="align-items-center mb-3">
               <CCol xs>
                 <CButton onClick={OnShowClicked}>Show</CButton>
-                <CButton>Hide</CButton>
+                <CButton onClick={OnHideClicked}>Hide</CButton>
               </CCol>
             </CRow>
           </CCardBody>
@@ -88,6 +100,8 @@ const Test = (value) => {
     InGamePath = value
   }
 
+  const data = new ELIMINATION_GT();
+
   return (
     <CRow>
       <CCol xs={12}>
@@ -100,7 +114,7 @@ const Test = (value) => {
             <strong>Test GTs</strong>
           </CCardHeader>
           <CRow>
-            <GT_Card GT_Name="ELIMINATION" GT_TEXTS={["ELIMS", "RANK", "TEAM_NAME"]} />
+            <GT_Card GT_Name="ELIMINATION" GT_TEXTS={[data.Text.ELIMS, data.Text.RANK, data.Text.TEAM_NAME]} />
             {/* <GT_Card GT_Name="Dead Alive" GT_TEXTS={["ELIMS", "RANK", "TEAM_NAME"]}/> */}
           </CRow>
         </CCard>

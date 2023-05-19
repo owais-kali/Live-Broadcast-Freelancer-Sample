@@ -24,4 +24,9 @@ export class Input implements IApi {
     this.Function = "AddInput";
     this.Value = FileType + "|" + FilePath;
   }
+
+  RemoveInput(GT_Name: string) {
+    this.Function = "RemoveInput";
+    this.Input = GT_Name;
+  }
 }

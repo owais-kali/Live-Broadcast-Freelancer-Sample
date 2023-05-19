@@ -39,7 +39,7 @@ import { ELIMINATION as ELIMINATION_GT } from "src/services/Vmix/GTs/Settings/EL
 
 var InGamePath = ""
 
-function GT_Card({ GT_Name, GT_TEXTS }) {
+function GT_Card({ GT_Name, GT_TEXTS, GT_Setting }) {
 
   const [texts, setTexts] = useState(GT_TEXTS);
 
@@ -55,7 +55,7 @@ function GT_Card({ GT_Name, GT_TEXTS }) {
     LoadInGameGT(InGamePath + "\\ELIMINATION.gtzip").then(() => {
       const data = new ELIMINATION_GT();
       GT_TEXTS.forEach(element => {
-        
+        GT_Setting.SetText(element,texts[element]);
       });
     });
   }
@@ -100,7 +100,7 @@ const Test = (value) => {
     InGamePath = value
   }
 
-  const data = new ELIMINATION_GT();
+  const elimination_gt = new ELIMINATION_GT();
 
   return (
     <CRow>
@@ -114,8 +114,9 @@ const Test = (value) => {
             <strong>Test GTs</strong>
           </CCardHeader>
           <CRow>
-            <GT_Card GT_Name="ELIMINATION" GT_TEXTS={[data.Text.ELIMS, data.Text.RANK, data.Text.TEAM_NAME]} />
-            {/* <GT_Card GT_Name="Dead Alive" GT_TEXTS={["ELIMS", "RANK", "TEAM_NAME"]}/> */}
+            <GT_Card GT_Name="ELIMINATION"
+              GT_TEXTS={[elimination_gt.Text.ELIMS, elimination_gt.Text.RANK, elimination_gt.Text.TEAM_NAME]}
+              GT_Setting={elimination_gt} />
           </CRow>
         </CCard>
 
@@ -126,7 +127,8 @@ const Test = (value) => {
 
 GT_Card.propTypes = {
   GT_Name: PropTypes.string,
-  GT_TEXTS: PropTypes.array
+  GT_TEXTS: PropTypes.array,
+  GT_Setting: PropTypes.object
 };
 
 export default Test

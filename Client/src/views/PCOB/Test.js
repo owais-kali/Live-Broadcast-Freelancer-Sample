@@ -20,6 +20,7 @@ import jsoneditor from 'jsoneditor';
 import locale from 'react-json-editor-ajrm/locale/en';
 
 import { PCOB_Handler } from 'src/services/PCOB/PCOB-Handler';
+import {PlayElimination} from 'src/views/Vmix/Test'
 
 const EC_Agent_PCOB_URL = env.HTTP + '://' + env.EC_Agent_URL + "/pcob";
 const PCOB_URL = env.PCOB_URL;
@@ -86,7 +87,7 @@ function ConsoleLog() {
     return (
         <div>
             <div className="mb-3">
-                <CFormLabel htmlFor="exampleFormControlTextarea1">GetTotalPlayerList</CFormLabel>
+                <CFormLabel htmlFor="Console">Console</CFormLabel>
                 <CFormTextarea id="Input" rows="3" readOnly ></CFormTextarea>
             </div>
         </div>
@@ -95,13 +96,19 @@ function ConsoleLog() {
 
 function Handler() {
     const pcob_handler = new PCOB_Handler(PCOB_URL);
-
+    pcob_handler.OnEliminated = Play_Elimination
+    
     const Start = () => {
         pcob_handler.Start();
+        
     }
 
     const Stop = () => {
         pcob_handler.Stop();
+    }
+
+    function Play_Elimination(playerinfo){
+        PlayElimination(playerinfo.killNum,playerinfo.rank,playerinfo.teamName);
     }
 
     return (
@@ -109,6 +116,7 @@ function Handler() {
             <CCol xs>
                 <CButton onClick={Start}>Start Streaming</CButton>
                 <CButton onClick={Stop}>Stop Streaming</CButton>
+                <CButton onClick={PlayElimination}>Play Elimination</CButton>
             </CCol>
         </div>
     )

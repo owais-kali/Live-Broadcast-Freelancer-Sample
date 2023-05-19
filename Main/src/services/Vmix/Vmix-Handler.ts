@@ -1,12 +1,5 @@
-import 'module-alias/register';
-
-import axios, { AxiosResponse } from "axios";
-
-import { playerInfo } from "@services/types/playerInfo";
-import { PCOB_Handler } from "@services/PCOB/PCOB-Handler";
-import { env } from "@configs/env";
-import { Shortcuts } from "./Shortcuts/Shortcuts";
-import { Input, FileType } from "./Shortcuts/Functions/Input";
+import { PCOB_Handler } from "@PCOB/PCOB-Handler";
+import { Elimination as Elimination_Callback } from "@Vmix/Callbacks/Elimination"
 
 export class VMix_Handler {
   private url: string;
@@ -17,22 +10,6 @@ export class VMix_Handler {
   }
 
   SetCallbacks(PCOB_Handler: PCOB_Handler) {
-    PCOB_Handler.OnEliminated = this.Elimination.bind(this);
-  }
-
-  Elimination(playerInfo: playerInfo) {
-    console.log(
-      "player: " + JSON.stringify(playerInfo.playerName) + " is dead!"
-    );
-    axios
-      .get(
-        "http://" +
-          this.url +
-          "/api/?Function=SetText&Input=elimination.gtzip&SelectedName=RANK.Text&Value=" +
-          playerInfo.playerName
-      )
-      .then((res: AxiosResponse) => {
-        // console.log(res);
-      });
+    PCOB_Handler.OnEliminated = Elimination_Callback.bind(this);
   }
 }

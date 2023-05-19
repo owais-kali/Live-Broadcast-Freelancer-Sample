@@ -72,11 +72,6 @@ function GT_Card({ GT_Name, GT_TEXTS, GT_Setting }) {
     GTCard_Active = false;
   }
 
-  async function OnHideClicked() {
-    await UnLoadInGameGT("ELIMINATION.gtzip");
-    GTCard_Active = false;
-  }
-
   return (
     <CCol sm={4}>
       <CCardBody>
@@ -96,8 +91,7 @@ function GT_Card({ GT_Name, GT_TEXTS, GT_Setting }) {
           <CCardBody className="align-items-center mb-3">
             <CRow className="align-items-center mb-3">
               <CCol xs>
-                <CButton onClick={OnShowClicked}>Show</CButton>
-                <CButton onClick={OnHideClicked}>Hide</CButton>
+                <CButton onClick={OnShowClicked}>Play</CButton>
               </CCol>
             </CRow>
           </CCardBody>

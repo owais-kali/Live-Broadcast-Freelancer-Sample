@@ -16,7 +16,13 @@ import { env } from 'src/configs/env'
 
 import axios from 'axios'
 
+import jsoneditor from 'jsoneditor';
+import locale from 'react-json-editor-ajrm/locale/en';
+
+import { PCOB_Handler } from 'src/services/PCOB/PCOB-Handler';
+
 const EC_Agent_PCOB_URL = env.HTTP + '://' + env.EC_Agent_URL + "/pcob";
+const PCOB_URL = env.PCOB_URL;
 
 function StartPCOBDummy() {
     axios.get(EC_Agent_PCOB_URL + '/start', (res) => {
@@ -60,10 +66,6 @@ function GetTotalPlayerList() {
         })
     }
 
-    const GetCurrent = () => {
-        return CurrentInput;
-    }
-
     return (
         <div>
             <div className="mb-3">
@@ -91,6 +93,27 @@ function ConsoleLog() {
     )
 }
 
+function Handler() {
+    const pcob_handler = new PCOB_Handler(PCOB_URL);
+
+    const Start = () => {
+        pcob_handler.Start();
+    }
+
+    const Stop = () => {
+        pcob_handler.Stop();
+    }
+
+    return (
+        <div className="mb-3">
+            <CCol xs>
+                <CButton onClick={Start}>Start Streaming</CButton>
+                <CButton onClick={Stop}>Stop Streaming</CButton>
+            </CCol>
+        </div>
+    )
+}
+
 const Test = () => {
     return (
         <CRow>
@@ -111,6 +134,8 @@ const Test = () => {
                             <GetTotalPlayerList />
 
                             <ConsoleLog />
+
+                            <Handler />
                         </CForm>
                     </CCardBody>
                 </CCard>

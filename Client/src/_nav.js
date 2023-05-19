@@ -17,15 +17,25 @@ import { CNavGroup, CNavItem, CNavTitle } from '@coreui/react'
 
 const _nav = [
   {
-    component: CNavTitle,
-    name: 'VMIX',
+    component: CNavGroup,
+    name: 'Testing',
+    icon: <CIcon icon={cilPuzzle} customClassName="nav-icon" />,
+    items: [
+      {
+        component: CNavItem,
+        name: 'VMIX',
+        to: '/Vmix/Test',
+        icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
+      },
+      {
+        component: CNavItem,
+        name: 'PCOB',
+        to: '/PCOB/Test',
+        icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
+      }
+    ]
   },
-  {
-    component: CNavItem,
-    name: 'Test',
-    to: '/Vmix/Test',
-    icon: <CIcon icon={cilDrop} customClassName="nav-icon" />,
-  },
+  
   {
     component: CNavItem,
     name: 'Typography',

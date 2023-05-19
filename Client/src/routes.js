@@ -53,6 +53,9 @@ const Widgets = React.lazy(() => import('./views/widgets/Widgets'))
 // VMix
 const VMix_Test = React.lazy(() => import('./views/Vmix/Test'))
 
+// PCOB
+const PCOB_Test = React.lazy(() => import('./views/PCOB/Test'))
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
@@ -100,6 +103,7 @@ const routes = [
   { path: '/widgets', name: 'Widgets', element: Widgets },
 
   { path: '/Vmix/Test', name: 'Test', element: VMix_Test },
+  { path: '/PCOB/Test', name: 'Test', element: PCOB_Test },
 ]
 
 export default routes

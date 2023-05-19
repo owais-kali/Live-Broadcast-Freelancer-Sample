@@ -72,6 +72,11 @@ function GT_Card({ GT_Name, GT_TEXTS, GT_Setting }) {
     GTCard_Active = false;
   }
 
+  async function OnHideClicked() {
+    await UnLoadInGameGT("ELIMINATION.gtzip");
+    GTCard_Active = false;
+  }
+
   return (
     <CCol sm={4}>
       <CCardBody>

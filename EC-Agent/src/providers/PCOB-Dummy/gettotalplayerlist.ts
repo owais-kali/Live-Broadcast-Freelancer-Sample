@@ -3186,3 +3186,8 @@ export function mountAPI(express:express.Application): express.Application {
 export function UpdateCurrentPlayerInfo(info:any) {
   CurrentPlayerInfo = info;
 }
+
+export function GetDefaultPlayerInfo(){
+  console.log("got req")
+  return DefaultPlayerInfo;
+}

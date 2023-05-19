@@ -50,7 +50,7 @@ function GT_Card({ GT_Name, GT_TEXTS }) {
 
   const OnShowClicked = () => {
     console.log("show button clicked!: path: "+InGamePath)
-    LoadInGameGT(InGamePath+"\\ELIMINATION.gtzip")
+    LoadInGameGT(InGamePath+"\\ELIMINATION.gtzip");
   }
 
   return (

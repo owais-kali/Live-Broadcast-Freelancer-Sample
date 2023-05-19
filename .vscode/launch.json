@@ -21,5 +21,12 @@
             "outFiles": ["${workspaceFolder}/Main/build/**/*.js"],
             "program": "${workspaceFolder}/Main/src/app.ts"
         },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Client App",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/Client"
+          }
     ]
 }

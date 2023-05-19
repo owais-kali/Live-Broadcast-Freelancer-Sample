@@ -36,8 +36,11 @@ import { Elimination } from 'src/services/Vmix/Callbacks/Elimination.ts'
 import { LoadInGameGT, UnLoadInGameGT } from 'src/services/Vmix/GTs/GTs.ts'
 
 import { ELIMINATION as ELIMINATION_GT } from "src/services/Vmix/GTs/Settings/ELIMINATION";
+import { Overlay } from 'src/services/Vmix/Shortcuts/Functions/Overlay';
+import { InGameGT } from "src/configs/InGameGT";
 
 var InGamePath = ""
+var GTCard_Active = false;
 
 function GT_Card({ GT_Name, GT_TEXTS, GT_Setting }) {
 
@@ -50,19 +53,28 @@ function GT_Card({ GT_Name, GT_TEXTS, GT_Setting }) {
     setTexts(NewText)
   }
 
-  const OnShowClicked = () => {
-    console.log("show button clicked!: path: " + InGamePath)
-    LoadInGameGT(InGamePath + "\\ELIMINATION.gtzip").then(() => {
-      const data = new ELIMINATION_GT();
-      GT_TEXTS.forEach(element => {
-        GT_Setting.SetText(element,texts[element]);
-      });
+  async function OnShowClicked() {
+    while (GTCard_Active)
+      await new Promise((resolve) => setTimeout(resolve, 100))
+
+    GTCard_Active = true;
+
+    await LoadInGameGT(InGamePath + "\\ELIMINATION.gtzip");
+
+    GT_TEXTS.forEach(element => {
+      GT_Setting.SetText(element, texts[element]);
     });
+
+    const transition = new Overlay();
+    await transition.FadeInOut(GT_Setting)
+    await UnLoadInGameGT("ELIMINATION.gtzip");
+
+    GTCard_Active = false;
   }
 
-  const OnHideClicked = () => {
-    console.log("show button clicked!: path: " + InGamePath)
-    UnLoadInGameGT("ELIMINATION.gtzip");
+  async function OnHideClicked() {
+    await UnLoadInGameGT("ELIMINATION.gtzip");
+    GTCard_Active = false;
   }
 
   return (

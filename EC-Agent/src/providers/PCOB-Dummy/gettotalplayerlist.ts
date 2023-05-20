@@ -20,7 +20,7 @@ const DefaultPlayerInfo = {
       },
       health: 100,
       healthMax: 100,
-      liveState: 5,
+      liveState: 0,
       killNum: 10,
       killNumBeforeDie: 0,
       playerKey: 2341287079,
@@ -64,7 +64,7 @@ const DefaultPlayerInfo = {
       },
       health: 100,
       healthMax: 100,
-      liveState: 5,
+      liveState: 0,
       killNum: 0,
       killNumBeforeDie: 0,
       playerKey: 3550123929,
@@ -108,7 +108,7 @@ const DefaultPlayerInfo = {
       },
       health: 100,
       healthMax: 100,
-      liveState: 5,
+      liveState: 0,
       killNum: 123,
       killNumBeforeDie: 0,
       playerKey: 3907984266,
@@ -152,7 +152,7 @@ const DefaultPlayerInfo = {
       },
       health: 100,
       healthMax: 100,
-      liveState: 5,
+      liveState: 0,
       killNum: 0,
       killNumBeforeDie: 0,
       playerKey: 581970311,
@@ -196,7 +196,7 @@ const DefaultPlayerInfo = {
       },
       health: 100,
       healthMax: 100,
-      liveState: 5,
+      liveState: 0,
       killNum: 1,
       killNumBeforeDie: 1,
       playerKey: 4202635735,
@@ -284,7 +284,7 @@ const DefaultPlayerInfo = {
       },
       health: 100,
       healthMax: 100,
-      liveState: 5,
+      liveState: 0,
       killNum: 0,
       killNumBeforeDie: 0,
       playerKey: 2754948657,
@@ -328,7 +328,7 @@ const DefaultPlayerInfo = {
       },
       health: 0,
       healthMax: 100,
-      liveState: 5,
+      liveState: 0,
       killNum: 0,
       killNumBeforeDie: 0,
       playerKey: 3142863078,
@@ -416,7 +416,7 @@ const DefaultPlayerInfo = {
       },
       health: 100,
       healthMax: 100,
-      liveState: 5,
+      liveState: 0,
       killNum: 0,
       killNumBeforeDie: 0,
       playerKey: 246139945,
@@ -3185,4 +3185,9 @@ export function mountAPI(express:express.Application): express.Application {
 
 export function UpdateCurrentPlayerInfo(info:any) {
   CurrentPlayerInfo = info;
+}
+
+export function GetDefaultPlayerInfo(){
+
+  return DefaultPlayerInfo;
 }

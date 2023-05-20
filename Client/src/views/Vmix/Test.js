@@ -33,12 +33,43 @@ import { DocsExample } from 'src/components'
 import ReactImg from 'src/assets/images/react.jpg'
 
 import { Elimination } from 'src/services/Vmix/Callbacks/Elimination.ts'
-import { LoadInGameGT} from 'src/services/Vmix/GTs/GTs.ts'
+import { LoadInGameGT, UnLoadInGameGT } from 'src/services/Vmix/GTs/GTs.ts'
 
-var InGamePath = ""
+import { ELIMINATION as ELIMINATION_GT } from "src/services/Vmix/GTs/Settings/ELIMINATION";
+import { Overlay } from 'src/services/Vmix/Shortcuts/Functions/Overlay';
+import { InGameGT } from "src/configs/InGameGT";
 
-function GT_Card({ GT_Name, GT_TEXTS }) {
+var GTCard_Active = false;
 
+class Data{
+  static InGamePath = ""
+}
+
+export async function PlayElimination(ELIMS, RANK, TEAM_NAME) {
+  const GT_Setting = new ELIMINATION_GT();
+
+  while (GTCard_Active)
+    await new Promise((resolve) => setTimeout(resolve, 100))
+
+  GTCard_Active = true;
+
+  await LoadInGameGT(Data.InGamePath + "\\ELIMINATION.gtzip");
+
+  GT_Setting.SetText(GT_Setting.Text.ELIMS, ELIMS);
+  GT_Setting.SetText(GT_Setting.Text.RANK, RANK);
+  GT_Setting.SetText(GT_Setting.Text.TEAM_NAME, TEAM_NAME);
+
+  const transition = new Overlay();
+  await transition.FadeInOut(GT_Setting)
+  await UnLoadInGameGT("ELIMINATION.gtzip");
+
+  GTCard_Active = false;
+}
+
+function Elimination_GT_Card() {
+  const GT_Name = "ELIMINATION"
+  const GT = new ELIMINATION_GT();
+  const GT_TEXTS = [GT.Text.ELIMS, GT.Text.RANK, GT.Text.TEAM_NAME]
   const [texts, setTexts] = useState(GT_TEXTS);
 
   const OnTextChange = (key, value) => {
@@ -48,9 +79,13 @@ function GT_Card({ GT_Name, GT_TEXTS }) {
     setTexts(NewText)
   }
 
-  const OnShowClicked = () => {
-    console.log("show button clicked!: path: "+InGamePath)
-    LoadInGameGT(InGamePath+"\\ELIMINATION.gtzip")
+  async function OnShowClicked() {
+    PlayElimination(texts[GT.Text.ELIMS], texts[GT.Text.RANK], texts[GT.Text.TEAM_NAME])
+  }
+
+  async function OnHideClicked() {
+    await UnLoadInGameGT("ELIMINATION.gtzip");
+    GTCard_Active = false;
   }
 
   return (
@@ -72,8 +107,7 @@ function GT_Card({ GT_Name, GT_TEXTS }) {
           <CCardBody className="align-items-center mb-3">
             <CRow className="align-items-center mb-3">
               <CCol xs>
-                <CButton onClick={OnShowClicked}>Show</CButton>
-                <CButton>Hide</CButton>
+                <CButton onClick={OnShowClicked}>Play</CButton>
               </CCol>
             </CRow>
           </CCardBody>
@@ -85,14 +119,14 @@ function GT_Card({ GT_Name, GT_TEXTS }) {
 
 const Test = (value) => {
   const OnInGameGT_Path = (value) => {
-    InGamePath = value
+    Data.InGamePath = value
   }
 
   return (
     <CRow>
       <CCol xs={12}>
         <CFormFloating key="1" className="mb-3">
-          <CFormInput id="floatingInput" placeholder="value" onInput={(e) => { OnInGameGT_Path(e.target.value) }} />
+          <CFormInput id="floatingInput" placeholder="value" defaultValue={Data.InGamePath} onInput={(e) => { OnInGameGT_Path(e.target.value) }} />
           <CFormLabel htmlFor="floatingInput">InGameGT Path</CFormLabel>
         </CFormFloating>
         <CCard className="mb-4">
@@ -100,8 +134,7 @@ const Test = (value) => {
             <strong>Test GTs</strong>
           </CCardHeader>
           <CRow>
-            <GT_Card GT_Name="ELIMINATION" GT_TEXTS={["ELIMS", "RANK", "TEAM_NAME"]} />
-            {/* <GT_Card GT_Name="Dead Alive" GT_TEXTS={["ELIMS", "RANK", "TEAM_NAME"]}/> */}
+            <Elimination_GT_Card />
           </CRow>
         </CCard>
 
@@ -109,10 +142,5 @@ const Test = (value) => {
     </CRow >
   )
 }
-
-GT_Card.propTypes = {
-  GT_Name: PropTypes.string,
-  GT_TEXTS: PropTypes.array
-};
 
 export default Test

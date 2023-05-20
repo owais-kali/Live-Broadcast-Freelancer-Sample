@@ -18,4 +18,9 @@ export class PCOB_Dummy{
         gettotalplayerlist.UpdateCurrentPlayerInfo(req.body);
         return res.json({"msg": "Updated gettotalplayerlist!"})
     }
+
+    public static getdefault_gettotalplayerlist (req, res: any): any {
+        const data = gettotalplayerlist.GetDefaultPlayerInfo();
+        return res.json(data)
+    }
 }

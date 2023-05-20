@@ -4,22 +4,18 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "PCOB-Dummy",
+            "name": "EC-Agent",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\PCOB-Dummy\\app.js"
+            "program": "${workspaceFolder}/EC-Agent/src/app.ts"
         },
         {
-            "type": "node",
+            "type": "chrome",
             "request": "launch",
-            "name": "Vmix-Handler",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            // "preLaunchTask": "tsc",
-            "outFiles": ["${workspaceFolder}/Main/build/**/*.js"],
-            "program": "${workspaceFolder}/Main/src/app.ts"
-        },
+            "name": "Client App",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/Client"
+          }
     ]
 }

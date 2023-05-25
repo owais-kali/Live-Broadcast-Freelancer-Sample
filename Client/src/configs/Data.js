@@ -1,0 +1,3 @@
+class Data{
+    static InGamePath = ""
+  }

@@ -20,7 +20,7 @@ import jsoneditor from 'jsoneditor';
 import locale from 'react-json-editor-ajrm/locale/en';
 
 import { PCOB_Handler } from 'src/services/PCOB/PCOB-Handler';
-import {PlayElimination} from 'src/views/Vmix/Test'
+import {PlayElimination} from 'src/views/Vmix/Elimination'
 
 const EC_Agent_PCOB_URL = env.HTTP + '://' + env.EC_Agent_URL + "/pcob";
 const PCOB_URL = env.PCOB_URL;

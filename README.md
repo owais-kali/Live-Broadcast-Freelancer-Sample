@@ -7,6 +7,7 @@ This tool allows automating VMix actions using nodejs.
 - Nodejs
 - ReactJS
 - VMix
+- MongoDB
 
 ## Getting Started 
 clone this repo 
@@ -29,20 +30,24 @@ npm install
 node run start
 ```
 
-## Install node-modules Main
+## Install node-modules Server
 ```
-cd Vmix-Handler
+cd Server
 npm install
 ```
-## Run Vmix-Handler
+## Run Server
 ```
-node app.js
+node run start
 ```
 
-## Updating Changes
+## Install node-modules Client
 ```
-git checkout <your-name>
-git merge owais-dev
+cd Client
+npm install
+```
+## Run Client
+```
+node run start
 ```
 
 <!-- Roadmap -->

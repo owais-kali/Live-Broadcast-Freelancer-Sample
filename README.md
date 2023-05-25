@@ -13,10 +13,10 @@ clone this repo
 ```
 git clone https://github.com/owais-kali/Live-Broadcast-Freelancer-Sample.git
 ```
-checkout to develop branch
+checkout to main branch
 ```
 cd LIVE-BROADCAST-AUTOMATION 
-git checkout develop
+git checkout main
 ```
 
 ## Install node-modules EC-Agent
@@ -26,10 +26,10 @@ npm install
 ```
 ## Run EC-Agent
 ```
-node app.js
+node run start
 ```
 
-## Install node-modules Vmix-Handler
+## Install node-modules Main
 ```
 cd Vmix-Handler
 npm install

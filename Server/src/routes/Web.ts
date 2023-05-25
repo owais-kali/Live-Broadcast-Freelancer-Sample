@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 
-import Cache from './../providers/Cache';
+import Cache from '../providers/Cache';
 
 import HomeController from '../controllers/Home';
 import AccountController from '../controllers/Account';

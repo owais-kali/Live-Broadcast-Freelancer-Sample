@@ -56,6 +56,9 @@ const VMix_Test = React.lazy(() => import('./views/Vmix/Test'))
 // PCOB
 const PCOB_Test = React.lazy(() => import('./views/PCOB/Test'))
 
+// Teams
+const Teams = React.lazy(() => import('./views/Teams/index'))
+
 const routes = [
   { path: '/', exact: true, name: 'Home' },
   { path: '/dashboard', name: 'Dashboard', element: Dashboard },
@@ -104,6 +107,7 @@ const routes = [
 
   { path: '/Vmix/Test', name: 'Test', element: VMix_Test },
   { path: '/PCOB/Test', name: 'Test', element: PCOB_Test },
+  { path: '/Teams', name: 'Teams', element: Teams },
 ]
 
 export default routes

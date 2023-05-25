@@ -10,6 +10,10 @@ import {
   cilNotes,
   cilPencil,
   cilPuzzle,
+  cilPeople,
+  cilUserPlus,
+  cilVideogame,
+  cilMug,
   cilSpeedometer,
   cilStar,
 } from '@coreui/icons'
@@ -38,13 +42,41 @@ const _nav = [
   
   {
     component: CNavItem,
-    name: 'Typography',
-    to: '/theme/typography',
-    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
+    name: 'Teams',
+    to: '/Teams',
+    icon: <CIcon icon={cilPeople} customClassName="nav-icon" />,
   },
+
+  {
+    component: CNavItem,
+    name: 'Players',
+    to: '/Players',
+    icon: <CIcon icon={cilUserPlus} customClassName="nav-icon" />,
+  },
+
+  {
+    component: CNavItem,
+    name: 'Matches',
+    to: '/Matches',
+    icon: <CIcon icon={cilVideogame} customClassName="nav-icon" />,
+  },
+
+  {
+    component: CNavItem,
+    name: 'Tournaments',
+    to: '/Tournaments',
+    icon: <CIcon icon={cilMug} customClassName="nav-icon" />,
+  },
+
   {
     component: CNavTitle,
     name: 'Components',
+  },
+  {
+    component: CNavItem,
+    name: 'Typography',
+    to: '/theme/typography',
+    icon: <CIcon icon={cilPencil} customClassName="nav-icon" />,
   },
   {
     component: CNavGroup,

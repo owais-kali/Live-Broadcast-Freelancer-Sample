@@ -28,11 +28,11 @@ function getToken() {
 }
 
 function App() {
-  const token = getToken();
+  // const token = getToken();
   
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
 
   return (
     <HashRouter>

@@ -32,7 +32,8 @@ import { DocsExample } from 'src/components'
 
 import ReactImg from 'src/assets/images/react.jpg'
 
-import { Elimination_GT_Card} from './Elimination';
+import { Elimination_GT_Card } from './Elimination';
+import { DeadAlive_GT_Card } from './DeadAlive';
 
 import Data from 'src/configs/Data'
 
@@ -54,6 +55,7 @@ const Test = (value) => {
           </CCardHeader>
           <CRow>
             <Elimination_GT_Card />
+            <DeadAlive_GT_Card />
           </CRow>
         </CCard>
 
